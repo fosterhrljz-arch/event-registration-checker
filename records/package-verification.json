@@ -1,0 +1,27 @@
+{
+  "timestamp_utc": "2026-11-03T07:02:41.467072+00:00",
+  "local_timezone": "America/Denver",
+  "archive": "C:\\Users\\TTK\\Documents\\ChatGPT\\Session\\event-registration-checker.zip",
+  "node": "D:\\node.EXE",
+  "node_version": "v24.16.0",
+  "syntax_checks": {
+    "core.js": "PASS",
+    "app.js": "PASS"
+  },
+  "relative_resources_all_present": [
+    "styles.css",
+    "core.js",
+    "app.js",
+    "sample-registration.csv"
+  ],
+  "relocated_path": "C:\\Users\\TTK\\Documents\\ChatGPT\\Session\\报名表 搬家验证 jp0f3w89\\第一次解压\\event-registration-checker",
+  "relocated_core_test_exit_code": 0,
+  "runtime_payload_hashes_equal_before_and_after_relocation": {
+    "index.html": "757212f5583464cba8f3566e23dbdb00859a0946a63bdd8e0ad0f341442b403f",
+    "core.js": "e6bd429711d06c48ba81427ccfd6fb4b0756fee84698445036463609a66e9b17",
+    "app.js": "54d688837814d140054d187e877bc5db4f7d7dff0530ddc04553d2069555abf1",
+    "styles.css": "89b683d32746f0876d230e3eafdf52a9165f8f140d7db75c3821926d20302b1d",
+    "sample-registration.csv": "44a2ce237c12eb686d698850f81d0c7b58ab609802c9eccc9b7804f162092c09"
+  },
+  "note": "换文件夹的文件完整性与 Node 逻辑测试通过；这不等于 file:// 浏览器双击测试。最终 ZIP 全文件逐项核对见压缩包旁 packaging-verification.txt。"
+}

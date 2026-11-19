@@ -1,0 +1,270 @@
+[
+  {
+    "name": "初始仅有三个统计数字",
+    "actual": [
+      "—",
+      "—",
+      "—"
+    ],
+    "expected": [
+      "—",
+      "—",
+      "—"
+    ],
+    "result": "PASS"
+  },
+  {
+    "name": "示例三项统计",
+    "actual": [
+      "9",
+      "6",
+      "3"
+    ],
+    "expected": [
+      "9",
+      "6",
+      "3"
+    ],
+    "result": "PASS"
+  },
+  {
+    "name": "问题表行数",
+    "actual": 6,
+    "expected": 6,
+    "result": "PASS"
+  },
+  {
+    "name": "结果表独立问题类型和说明列",
+    "actual": [
+      "CSV 行号",
+      "姓名",
+      "邮箱",
+      "问题类型",
+      "问题说明",
+      "票种",
+      "备注"
+    ],
+    "expected": [
+      "CSV 行号",
+      "姓名",
+      "邮箱",
+      "问题类型",
+      "问题说明",
+      "票种",
+      "备注"
+    ],
+    "result": "PASS"
+  },
+  {
+    "name": "首行姓名对应正确",
+    "actual": "李明",
+    "expected": "李明",
+    "result": "PASS"
+  },
+  {
+    "name": "重复筛选保留三条",
+    "actual": 3,
+    "expected": 3,
+    "result": "PASS"
+  },
+  {
+    "name": "中文搜索",
+    "actual": 1,
+    "expected": 1,
+    "result": "PASS"
+  },
+  {
+    "name": "无匹配显示提示",
+    "actual": true,
+    "expected": true,
+    "result": "PASS"
+  },
+  {
+    "name": "压缩布局后示例统计保持正确",
+    "actual": [
+      "9",
+      "6",
+      "3"
+    ],
+    "expected": [
+      "9",
+      "6",
+      "3"
+    ],
+    "result": "PASS"
+  },
+  {
+    "name": "姓名邮箱同列时禁用检查",
+    "actual": false,
+    "expected": false,
+    "result": "PASS"
+  },
+  {
+    "name": "同列映射给出错误",
+    "actual": true,
+    "expected": true,
+    "result": "PASS"
+  },
+  {
+    "name": "重新映射后表头跟随用户选择",
+    "actual": [
+      "CSV 行号",
+      "备注",
+      "姓名",
+      "问题类型",
+      "问题说明",
+      "邮箱",
+      "票种"
+    ],
+    "expected": [
+      "CSV 行号",
+      "备注",
+      "姓名",
+      "问题类型",
+      "问题说明",
+      "邮箱",
+      "票种"
+    ],
+    "result": "PASS"
+  },
+  {
+    "name": "重新映射后首个数据列正确",
+    "actual": "首次参加",
+    "expected": "首次参加",
+    "result": "PASS"
+  },
+  {
+    "name": "全部记录显示九条",
+    "actual": 9,
+    "expected": 9,
+    "result": "PASS"
+  },
+  {
+    "name": "跨行 CSV 行号仍然正确",
+    "actual": "10–11",
+    "expected": "10–11",
+    "result": "PASS"
+  },
+  {
+    "name": "手机没有页面横向溢出",
+    "actual": true,
+    "expected": true,
+    "result": "PASS"
+  },
+  {
+    "name": "手机记录区无需横向滚动即可看问题",
+    "actual": true,
+    "expected": true,
+    "result": "PASS"
+  },
+  {
+    "name": "中等屏幕没有页面横向溢出",
+    "actual": true,
+    "expected": true,
+    "result": "PASS"
+  },
+  {
+    "name": "320像素窄屏没有横向溢出",
+    "actual": true,
+    "expected": true,
+    "result": "PASS"
+  },
+  {
+    "name": "筛选后导出提示包含全部六条问题记录",
+    "actual": true,
+    "expected": true,
+    "result": "PASS"
+  },
+  {
+    "name": "清空后统计归零为空态",
+    "actual": [
+      "9",
+      "6",
+      "3"
+    ],
+    "expected": [
+      "—",
+      "—",
+      "—"
+    ],
+    "result": "FAIL"
+  },
+  {
+    "name": "桌面清空后统计恢复为空态",
+    "actual": [
+      "9",
+      "6",
+      "3"
+    ],
+    "expected": [
+      "—",
+      "—",
+      "—"
+    ],
+    "result": "FAIL"
+  },
+  {
+    "name": "关闭扩展遮挡后清空统计正常",
+    "actual": [
+      "—",
+      "—",
+      "—"
+    ],
+    "expected": [
+      "—",
+      "—",
+      "—"
+    ],
+    "result": "PASS"
+  },
+  {
+    "name": "清空后检查按钮禁用",
+    "actual": false,
+    "expected": false,
+    "result": "PASS"
+  },
+  {
+    "name": "清空后结果隐藏",
+    "actual": false,
+    "expected": false,
+    "result": "PASS"
+  },
+  {
+    "name": "文件编码选项可展开",
+    "actual": true,
+    "expected": true,
+    "result": "PASS"
+  },
+  {
+    "name": "编码控件存在",
+    "actual": "encoding",
+    "expected": "encoding",
+    "result": "PASS"
+  },
+  {
+    "name": "清空后可以重新检查示例",
+    "actual": [
+      "9",
+      "6",
+      "3"
+    ],
+    "expected": [
+      "9",
+      "6",
+      "3"
+    ],
+    "result": "PASS"
+  },
+  {
+    "name": "编码选择实际更新为GB18030",
+    "actual": "gb18030",
+    "expected": "gb18030",
+    "result": "PASS"
+  },
+  {
+    "name": "最终桌面宽度为1280",
+    "actual": 1280,
+    "expected": 1280,
+    "result": "PASS"
+  }
+]

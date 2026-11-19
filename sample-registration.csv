@@ -1,0 +1,11 @@
+﻿姓名,邮箱,票种,备注
+张小雨,xiaoyu@example.com,普通票,首次参加
+李明,li.ming@example.com,普通票,"希望交流,学习经验"
+王芳,LI.MING@example.com,学生票,与上一条邮箱重复
+陈晨, li.ming@example.com ,普通票,邮箱两端有空格
+,guest@example.com,普通票,漏填姓名
+赵宁,,学生票,漏填邮箱
+周一,zhouyi.example.com,普通票,邮箱缺少@
+吴双,wushuang@example.com,普通票,"他说""期待见面"""
+林晓,linxiao@example.com,普通票,"需要无障碍座位
+谢谢安排"

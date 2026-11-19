@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>报名表检查器 · 第三版设计提案</title>
+<style>
+:root{color-scheme:light;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;color:#1d1d1f;background:#f5f5f7}
+*{box-sizing:border-box}body{margin:0}main{max-width:1280px;margin:auto;padding:64px 32px 96px}h1{font-size:clamp(32px,5vw,54px);letter-spacing:-.035em;line-height:1.2;margin:0 0 24px}h2{font-size:30px;margin:64px 0 20px}h3{font-size:22px;margin:36px 0 12px}p,li{font-size:16px;line-height:1.9}p{max-width:880px}a{color:#0066cc;text-underline-offset:4px}nav{display:flex;gap:24px;flex-wrap:wrap;padding:20px 0;border-bottom:1px solid #d2d2d7}figure{margin:24px 0 48px}figure a{display:block}img{display:block;width:100%;height:auto;background:white;border-radius:8px}figcaption{color:#55555a;font-size:14px;line-height:1.8;margin-top:12px}.portrait{max-width:470px;margin:0 auto}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.7}th,td{text-align:left;vertical-align:top;padding:16px 18px 16px 0;border-bottom:1px solid #d2d2d7}th{font-weight:600}.muted{color:#626267}.route{padding:24px 0;font-size:20px;line-height:2;border-block:1px solid #d2d2d7}.note{border-left:3px solid #0071e3;padding-left:20px}.swatch{display:inline-block;width:14px;height:14px;vertical-align:middle;border:1px solid #999;margin-right:6px;border-radius:50%}a:focus-visible{outline:3px solid #0071e3;outline-offset:6px}footer{margin-top:64px;padding-top:20px;border-top:1px solid #d2d2d7;font-size:14px;color:#626267}@media(max-width:600px){main{padding:36px 20px 56px}h2{font-size:26px;margin-top:48px}nav{gap:12px 20px}th,td{min-width:120px;padding:12px 14px 12px 0}figure{margin-bottom:32px}}
+</style></head><body><main>
+<header><h1>报名表检查器<br>第三版视觉设计提案</h1>
+<p>开阔、精确、有节奏。首页用滚动章节演示检查过程；进入结果后，界面安静下来，只留下判断与处理所需的信息。</p>
+<p class="muted">第一阶段 · 静态概念图与动效规格 · 2026 年 11 月 3 日<br>本文件是设计审阅册，不是已实现的检查器。效果图中的数据均为虚构示例，按钮不能操作。现有产品文件未改动。</p>
+<nav aria-label="设计目录"><a href="#plan">设计规划</a><a href="#desktop">桌面效果图</a><a href="#mobile">手机效果图</a><a href="#motion">滚动与过渡</a><a href="#spec">视觉规范</a><a href="#prepare">开发准备</a></nav></header>
+<section id="plan"><h2>一、设计规划</h2>
+<p>借鉴 MacBook Pro 产品页的大字排版、留白、章节对比和随滚动展开的视觉叙事。把报名表本身作为主视觉：薄纸叠层、重复邮箱之间的连线、格式错误的细线提示。全站不使用苹果标志、产品照片或装饰性英文。</p>
+<p class="route">白色首屏 → 深色识别章节 → 白色上传与确认<br>开始检查 → 独立白色结果页</p>
+<p>首页保留三个章节，避免介绍过长。顶部始终有“上传报名表”，首屏也有同名主按钮，点击可直接选择文件并进入确认区，不需要先滚动看完介绍。结果页不使用滚动叙事，不设置侧栏或卡片墙。</p>
+<p>示例结果统一为 9 条报名、6 条问题记录、3 条通过。重复邮箱 3 条、缺失信息 2 条、邮箱格式 1 条，仅用于设计展示。实际统计继续使用现有检查结果；同一条记录有多个问题时，各类别可能重叠。</p></section>
+<section id="desktop"><h2>二、页面设计 · 桌面</h2>
+<h3>01　首屏：把报名表，理清楚。</h3>
+<figure><a href="01-desktop-home.png"><img src="01-desktop-home.png" alt="桌面首页概念：白色背景、大字标题、上传主按钮及报名表薄纸叠层"></a><figcaption>标题、上传入口、报名表视觉依次建立层次。叠层只表现资料被梳理，不表示自动修改原文件。点击图片可看原图。</figcaption></figure>
+<h3>02　滚动章节：重复的，一眼看见。</h3>
+<figure><a href="02-desktop-detection.png"><img loading="lazy" src="02-desktop-detection.png" alt="深色识别章节：相同邮箱通过蓝线连接，下方展示邮箱格式错误"></a><figcaption>深色只用于这一段演示。两条邮箱记录在滚动过程中被关联；继续向下，格式错误获得细线标记，缺失字段以短标签补充呈现。</figcaption></figure>
+<h3>03　上传与列名确认</h3>
+<figure><a href="03-desktop-upload.png"><img loading="lazy" src="03-desktop-upload.png" alt="桌面上传章节：上传区与姓名邮箱列选择以及开始检查按钮"></a><figcaption>为便于审阅，图中同时展示上传与选好文件后的配置。实际实现分状态显示：选好文件后，大上传区收成文件摘要，姓名列、邮箱列和“开始检查”成为主要操作。保留示例、编码与已有文件限制。</figcaption></figure>
+<h3>04　独立结果页</h3>
+<figure><a href="04-desktop-results.png"><img loading="lazy" src="04-desktop-results.png" alt="桌面结果页：三个统计、分类筛选及六条简短问题记录"></a><figcaption>三个数字直接排版，不装入卡片。默认显示行号、问题类型及识别记录所需的简短信息；点开记录才显示具体原因及原始字段。导出与重新上传保持醒目。</figcaption></figure>
+<p class="note">保留现有功能：搜索、全部记录、分页和“列数不一致”筛选仍可使用。图中是精简默认状态；更多筛选放在展开工具区，出现结构问题时增加对应分类。导出范围沿用现有行为：导出全部问题，不随当前筛选缩小。</p></section>
+<section id="mobile"><h2>手机适配</h2>
+<figure><a href="05-mobile-home.png"><img loading="lazy" src="05-mobile-home.png" alt="三个手机首页滚动位置：白色首屏、深色识别、白色上传确认"></a><figcaption>同一首页的三个滚动位置。手机使用自然单列，邮箱图形重新排版，取消长距离固定滚动；选择列上下排列，主要按钮宽度更充足。</figcaption></figure>
+<figure><a class="portrait" href="06-mobile-results.png"><img loading="lazy" src="06-mobile-results.png" alt="手机结果页：三项统计、导出按钮、分类和简短记录"></a><figcaption>统计保持三列，筛选可换行，问题记录改为两层信息。详细字段展开后纵向显示，不强迫横向阅读表格。320px 至 430px 手机宽度都要单独验收。</figcaption></figure></section>
+<section id="motion"><h2>滚动叙事与页面过渡</h2>
+<p>以下是待实现的动效设计，效果图本身不会播放动画。动效用于提示关系和状态变化，用户的滚动速度始终由用户控制。</p>
+<div class="table-wrap"><table><thead><tr><th>场景</th><th>关键画面与节奏</th><th>时长与边界</th></tr></thead><tbody>
+<tr><td>首屏进入</td><td>标题先出现，说明与按钮随后；报名表叠层轻轻落定。主按钮从首帧即可操作。</td><td>文字淡入并上移 12px，500–650ms；错开 60–80ms，总体约 800ms，不循环。</td></tr>
+<tr><td>滚动识别</td><td>章节进入 → 两条邮箱记录出现 → 蓝色连线绘出 → 格式错误和缺失标签出现。邮箱原文保持不变，表示识别关系。</td><td>桌面可用一段短固定区，额外滚动不超过一屏；图形移动 8–24px。手机按自然滚动逐项淡入，无固定长章节。</td></tr>
+<tr><td>从深色回到上传</td><td>深色章节完整退出，白色上传章节自然进入；内容分组出现，重点转回主操作。</td><td>内容淡入 320–450ms，不全页闪白，不劫持滚动，不强制吸附。</td></tr>
+<tr><td>文件已选择</td><td>上传区收成文件摘要，列名选择与开始按钮展开。错误就近显示，保留用户的选择。</td><td>约 220ms。空间预留，避免表单跳动或键盘焦点丢失。</td></tr>
+<tr><td>检查进行中</td><td>按钮显示“正在检查”，轻量进度指示反馈忙碌。短任务立即完成，无人为等待。</td><td>能获得真实进度才显示百分比；否则使用不定进度。完成后播报结果。</td></tr>
+<tr><td>首页 → 结果页</td><td>操作区淡出，文件名保持视觉连贯，结果标题、三个数字和列表依次稳定呈现。结果从顶部开始。</td><td>旧视图约 120ms、新视图约 240ms，总计约 360ms；支持共享元素时增强，否则交叉淡入。数字不滚动计数。</td></tr>
+<tr><td>筛选与查看详情</td><td>选中下划线平滑移动，记录短暂淡入；点击条目展开说明，再点收起。</td><td>筛选 120–160ms，详情 180–220ms。不逐条延迟大型列表，不影响连续操作。</td></tr>
+<tr><td>按钮与返回</td><td>悬停轻微加深，按下略微收紧，键盘焦点清晰。重新上传返回上传位置，浏览器返回行为可预期。</td><td>反馈 120–160ms；返回过渡 220–280ms。触屏不依赖悬停。</td></tr>
+</tbody></table></div>
+<p class="note">可访问性：尊重“减少动态效果”设置，关闭视差、固定演示和位移动画，直接呈现最终信息；提供键盘操作、可见焦点、明确标签、展开状态和结果播报。页面切换后焦点移到结果标题，颜色之外还有问题文字。</p></section>
+<section id="spec"><h2>简短视觉规范</h2>
+<div class="table-wrap"><table><thead><tr><th>项目</th><th>约定</th></tr></thead><tbody>
+<tr><td>字体</td><td>使用本机系统字体：Apple 系统字体／苹方、Segoe UI／微软雅黑等；不下载字体。中文字距接近自然值，避免过度拉开或挤压。</td></tr>
+<tr><td>字号层次</td><td>桌面首屏 80–96px、章节 56–64px、结果标题 40–44px；手机分别 44–52px、36–44px、32–36px。正文 16–18px，记录 14–16px。标题字重 600–700，正文 400。</td></tr>
+<tr><td>基础颜色</td><td><span class="swatch" style="background:#fff"></span>#FFFFFF 白；<span class="swatch" style="background:#f5f5f7"></span>#F5F5F7 浅灰；<span class="swatch" style="background:#1d1d1f"></span>#1D1D1F 正文；<span class="swatch" style="background:#0071e3"></span>#0071E3 主操作。深色章节 #08090B，辅助文字 #6E6E73。</td></tr>
+<tr><td>问题提示</td><td>蓝色识别关联、少量琥珀色强调错误位置；实际正文对比度按 WCAG AA 检查。每种问题同时配文字，避免只靠颜色。</td></tr>
+<tr><td>间距与宽度</td><td>8px 基础节奏。桌面内容宽度 1120–1200px，两侧至少 48px；手机两侧 20–24px。首页章节留白 120–160px，手机 64–96px；结果页间距收紧至 24–40px。</td></tr>
+<tr><td>控件与细节</td><td>主按钮高度 48px，触控目标至少 44px；按钮胶囊圆角，表单 10–12px，上传区 16–20px。分隔线 1px。阴影主要用于报名表叠层，结果列表不用浮起的卡片。</td></tr>
+<tr><td>动效曲线</td><td>进入 cubic-bezier(.22,1,.36,1)；交互 cubic-bezier(.2,0,0,1)。主要使用 opacity 和 transform，避免大面积模糊及持续耗电的动画。</td></tr>
+</tbody></table></div></section>
+<section id="prepare"><h2>三、开发准备 · 待方向确认</h2>
+<p>本阶段只完成概念稿与规范。确认后在当前项目内改造视图：保留 CSV 解析、校验、邮箱规范化、导出逻辑，只调整界面结构、状态衔接与表现层。首页与结果作为两个独立视图，可通过本地 hash 导航切换，继续支持双击 HTML 离线打开。</p>
+<ul><li>按未上传、文件已选择、检查中、检查完成、无问题、筛选无结果、输入错误分别准备状态；异常提示保持清楚简短。</li><li>把纸张、邮箱连线和提示做成原生 HTML／CSS／本地 SVG。概念图不作为整屏图片嵌入正式产品。</li><li>继续保留姓名／邮箱列映射、编码选择、示例、搜索、分类、分页、导出和原行号规则。</li><li>优先采用原生浏览器能力；不引入联网字体、图标库、外部组件或动画服务。动效不能拖慢实际检查。</li><li>实施后再运行原有自动化测试，覆盖中文、空白、重复邮箱、逗号与引号，并检查导入、映射、筛选、导出、键盘和减少动态效果。</li><li>视觉验收尺寸：桌面 1440×900、1280×800；手机 390×844、320px 窄屏。检查大字号、长文件名、长邮箱和大批量结果。</li></ul>
+<p>本次验证范围：检查六张概念图、预览资源完整性以及现有产品文件未被改动。尚未实施或测试真实动画、响应式布局及页面切换；这些是下一阶段的验收项。</p></section>
+<footer>图像由内置 ImageGen 生成，使用虚构数据；采用一次完整概念生成流程，未调用外部账号或发布服务。<a href="prompts.json">查看六份原始生成提示词</a>。实际实现时以本文状态说明、功能保留要求及文字规范为准。</footer>
+</main></body></html>
